@@ -13,8 +13,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 5. Copy our actual code (main.py) into the container
 COPY . .
 
-# 6. Open port 80 so the outside world can talk to our API
-EXPOSE 80
-
+# 6. Open port 7860 so the outside world can talk to our API
+EXPOSE 7860
 # 7. The command to turn the engine on when the container starts
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
