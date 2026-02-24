@@ -1,0 +1,35 @@
+# 1. THE DEPLOYMENT (The Pods/Containers)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentiment-ai-deployment
+spec:
+  replicas: 2 # K8s to run 2 identical copies of the AI
+  selector:
+    matchLabels:
+      app: sentiment-ai
+  template:
+    metadata:
+      labels:
+        app: sentiment-ai
+    spec:
+      containers:
+      - name: sentiment-api
+        image: sentiment-api:v2
+        imagePullPolicy: IfNotPresent 
+        ports:
+        - containerPort: 7860 # The port set in the Dockerfile earlier
+
+---
+# 2. THE SERVICE (The Load Balancer / Network Door)
+apiVersion: v1
+kind: Service
+metadata:
+  name: sentiment-ai-service
+spec:
+  type: LoadBalancer # Gives single IP address to access all the copies
+  ports:
+  - port: 8080 # The port used in Windows web browser
+    targetPort: 7860 # The port inside the Docker container
+  selector:
+    app: sentiment-ai
