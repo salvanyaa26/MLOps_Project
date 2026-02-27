@@ -1,12 +1,12 @@
 # Production-Ready MLOps: Sentiment AI Microservice
 
-**Live Cloud Demo:** [Live API](https://salvanyaa2608-sentiment-ai-api.hf.space/docs)
+**Live API:** (https://salvanyaa2608-sentiment-ai-api.hf.space/docs)
 
 **The "Why" (Problem Statement):** Manual deployment of AI models often leads to version drift, hardware constraints, and slow releases. This project automates the entire lifecycle of a Natural Language Processing (NLP) model using modern Cloud-Native and MLOps practices, ensuring scalability and zero-downtime updates.
 
 ---
 
-## Architecture & Deployment Strategy
+## Architecture & Deployment
 
 ### 1. Current Live Deployment (MVP)
 To provide a live, accessible demo without incurring heavy, always-on cloud computing costs, the current iteration is deployed using:
